@@ -32,8 +32,8 @@ public class AvailabilityServiceImpl implements AvailabilityService, StateServic
 
   @Override
   public Uni<AvailabilityResponseDto> getAvailableDates(AvailabilityRequestDto request) {
-    Context context = stateBuilder.of((request.getContext().getCiphered())).build();
     State previousState  = State.valueOf(request.getContext().getPreviousState());
+    Context context = stateBuilder.of(request.getContext().getCiphered()).build();
 
     return Uni.createFrom()
         .item(this.processState(context, previousState))
@@ -54,6 +54,7 @@ public class AvailabilityServiceImpl implements AvailabilityService, StateServic
   @Override
   public Context processState(Context context, State previousState) {
     return stateBuilder.of(context)
+        .validatePreviousState(previousState)
         .continueToNextState(() -> State.RESERVATION)
         .build();
   }
