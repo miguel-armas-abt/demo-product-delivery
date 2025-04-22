@@ -1,0 +1,49 @@
+{
+  "customerId": "60777575",
+  "documentType": "DNI",
+  "documentNumber": "76543210",
+  "names": "Linus",
+  "surnames": "Torvalds",
+  "emails": [
+    {
+      "priority": "1",
+      "type": "PERSONAL",
+      "value": "linus.torvalds@gmail.com"
+    },
+    {
+      "priority": "2",
+      "type": "JOB",
+      "value": "linus.torvalds@corp.com"
+    }
+  ],
+  "phones": [
+    {
+      "priority": "1",
+      "type": "PERSONAL",
+      "number": "987654321"
+    },
+    {
+      "priority": "2",
+      "type": "PERSONAL",
+      "number": "912345678"
+    }
+  ],
+  "addresses": [
+    {
+      "priority": "1",
+      "type": "HOME",
+      "ubigeo": "150101",
+      "street": {
+        "name": "Javier Prado",
+        "type": "AVENIDA",
+        "number": "1010"
+      },
+      "block": {
+        "name": "Mz L",
+        "lot": "9"
+      },
+      "inside": "",
+      "references": "Al costado del chifa Fung Pao"
+    }
+  ]
+}

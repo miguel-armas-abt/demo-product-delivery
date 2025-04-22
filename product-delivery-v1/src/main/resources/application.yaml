@@ -1,0 +1,10 @@
+quarkus:
+  application:
+    name: product-delivery-v1
+  http:
+    port: ${SERVER_PORT:8016}
+  log:
+    console:
+      enable: true
+      json:
+        pretty-print: false
