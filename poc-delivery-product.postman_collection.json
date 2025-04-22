@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "dce8f06d-40fb-40b8-9390-63da48471522",
+		"name": "poc-delivery-product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33527392"
+	},
+	"item": [
+		{
+			"name": "mocks",
+			"item": [
+				{
+					"name": "Peding orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8021/poc/delivery-requests/v1/pending-orders?customerId=60777575",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"poc",
+								"delivery-requests",
+								"v1",
+								"pending-orders"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "60777575"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Available dates",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pendingOrderId\": \"20231030182329822184\",\r\n    \"ubigeo\": \"150101\",\r\n    \"courierCode\": \"49\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8021/poc/delivery-availability/v1/available-dates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"poc",
+								"delivery-availability",
+								"v1",
+								"available-dates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Contact data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8021/poc/customer-search/v1/contact-data/60777575",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"poc",
+								"customer-search",
+								"v1",
+								"contact-data",
+								"60777575"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Availability",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pendingOrderId\": \"20231030182329822184\",\r\n    \"ubigeo\": \"150101\",\r\n    \"courierCode\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8021/poc/delivery-availability/v1/available-dates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"poc",
+								"delivery-availability",
+								"v1",
+								"available-dates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reserve",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8021/poc/delivery-coordination/v1/reserve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"poc",
+								"delivery-coordination",
+								"v1",
+								"reserve"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contact-data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pendingOrderId\": \"20231030182329822184\",\r\n    \"customer\": {\r\n        \"customerId\": \"60777575\",\r\n        \"deliveryEmail\": \"linus.torvalds@email.com\",\r\n        \"deliveryPhone\": \"987654321\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8016/poc/product-delivery/v1/contact-data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8016",
+					"path": [
+						"poc",
+						"product-delivery",
+						"v1",
+						"contact-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "available-dates",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ubigeo\": \"150101\",\r\n    \"customerId\": \"60777575\",\r\n    \"authorizeThird\": true,\r\n    \"context\": {\r\n        \"previousState\": \"CONTACT_DATA\",\r\n        \"ciphered\": \"eyJjdXJyZW50U3RhdGUiOiJBVkFJTEFCTEVfREFURVMiLCJwcmV2aW91c1N0YXRlIjoiQ09OVEFDVF9EQVRBIiwicGVuZGluZ09yZGVyIjp7ImlkIjoiMjAyMzEwMzAxODIzMjk4MjIxODQiLCJjaGFubmVsSWQiOiJBUFAiLCJjcmVhdGlvbkRhdGUiOiIyMDIzMTAzMCIsInB1cmNoYXNlQ29kZSI6IjAxIn0sImNvbnRhY3REYXRhIjp7ImN1c3RvbWVySWQiOiI2MDc3NzU3NSIsImRvY3VtZW50VHlwZSI6IkROSSIsImRvY3VtZW50TnVtYmVyIjoiNzY1NDMyMTAiLCJuYW1lcyI6IkxpbnVzIiwic3VybmFtZXMiOiJUb3J2YWxkcyIsImVtYWlsIjoiTElOVVMuVE9SVkFMRFNARU1BSUwuQ09NIiwicGhvbmUiOiI5ODc2NTQzMjEiLCJhZGRyZXNzZXMiOlt7InByaW9yaXR5IjoiMSIsInR5cGUiOiJIT01FIiwidWJpZ2VvIjoiMTUwMTAxIiwic3RyZWV0Ijp7Im5hbWUiOiJKYXZpZXIgUHJhZG8iLCJ0eXBlIjoiQVZFTklEQSIsIm51bWJlciI6IjEwMTAifSwiYmxvY2siOnsibmFtZSI6Ik16IEwiLCJsb3QiOiI5In0sImluc2lkZSI6IiIsInJlZmVyZW5jZXMiOiJBbCBjb3N0YWRvIGRlbCBjaGlmYSBGdW5nIFBhbyJ9XX0sImF2YWlsYWJsZURhdGVzIjpudWxsfQ==\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8016/poc/product-delivery/v1/available-dates",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8016",
+					"path": [
+						"poc",
+						"product-delivery",
+						"v1",
+						"available-dates"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

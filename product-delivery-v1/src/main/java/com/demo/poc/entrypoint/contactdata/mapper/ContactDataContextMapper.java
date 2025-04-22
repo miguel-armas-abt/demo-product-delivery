@@ -17,7 +17,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(config = MappingConfig.class)
-public interface ContactDataRequestMapper {
+public interface ContactDataContextMapper {
 
   @Mapping(target = "pendingOrder", source = "pendingOrder")
   @Mapping(target = "contactData.customerId", source = "contactData.customerId")

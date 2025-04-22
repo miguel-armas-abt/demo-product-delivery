@@ -26,7 +26,8 @@ public enum ErrorDictionary {
   INVALID_PREVIOUS_STATE("01.01.04", "Invalid previous state", BAD_REQUEST, InvalidPreviousStateException.class),
   INVALID_NEXT_STATE("01.01.05", "Invalid next state", BAD_REQUEST, InvalidPreviousStateException.class),
   INVALID_CURRENT_STATE("01.01.06", "Invalid current state", INTERNAL_SERVER_ERROR, InvalidCurrentStateException.class),
-  ERROR_PARSING_JSON("01.01.07", "Error parsing JSON", INTERNAL_SERVER_ERROR, ParsingJsonException.class),;
+  ERROR_PARSING_JSON("01.01.07", "Error parsing JSON", INTERNAL_SERVER_ERROR, ParsingJsonException.class),
+  NOT_FOUND_AVAILABLE_DATES("01.01.08", "Not found available dates", NOT_FOUND, NotFoundAvailableDatesException.class),;
 
   private final String code;
   private final String message;

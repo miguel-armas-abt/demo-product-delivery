@@ -1,7 +1,9 @@
 package com.demo.poc.commons.custom.states.context;
 
 import java.io.Serializable;
+import java.util.List;
 
+import com.demo.poc.commons.custom.states.context.availability.AvailableDateContext;
 import com.demo.poc.commons.custom.states.context.contactdata.ContactDataContext;
 import com.demo.poc.commons.custom.states.context.orders.PendingOrderContext;
 import lombok.AllArgsConstructor;
@@ -19,4 +21,5 @@ public class ProductDeliveryContext extends Context implements Serializable {
 
   private PendingOrderContext pendingOrder;
   private ContactDataContext contactData;
+  private List<AvailableDateContext> availableDates;
 }

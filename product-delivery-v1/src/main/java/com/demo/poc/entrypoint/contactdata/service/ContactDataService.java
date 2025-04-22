@@ -7,6 +7,6 @@ import jakarta.validation.Valid;
 
 public interface ContactDataService {
 
-  Uni<ContactDataResponseDto> getContactData(@Valid ContactDataRequestDto request, String channelId);
+  Uni<ContactDataResponseDto> getContactData(@Valid ContactDataRequestDto request);
 
 }

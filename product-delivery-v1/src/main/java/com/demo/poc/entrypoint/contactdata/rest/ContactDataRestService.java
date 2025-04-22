@@ -23,6 +23,6 @@ public class ContactDataRestService {
 
   @POST
   public Uni<ContactDataResponseDto> getContactData(ContactDataRequestDto request) {
-    return contactDataService.getContactData(request, "WEB");
+    return contactDataService.getContactData(request);
   }
 }

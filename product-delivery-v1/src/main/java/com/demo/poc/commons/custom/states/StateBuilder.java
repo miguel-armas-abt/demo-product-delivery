@@ -27,9 +27,17 @@ public class StateBuilder {
     return this;
   }
 
-  public StateBuilder validate(State previousState) {
-    validatePreviousState(this.currentContext, previousState);
+  public StateBuilder of(Context currentContext) {
+    this.currentContext = currentContext;
+    validateCurrentState(currentContext);
+    validatePreviousState(this.currentContext, currentContext.getPreviousState());
+    this.currentContext = currentContext;
     return this;
+  }
+
+  public StateBuilder of(String ciphered) {
+    Context recoveredContext = mapper.toContext(ciphered);
+    return of(recoveredContext);
   }
 
   public StateBuilder continueToNextState(Supplier<State> nextStateSupplier) {
@@ -38,13 +46,6 @@ public class StateBuilder {
     validateNextState(this.currentContext, nextState);
     this.currentContext.setPreviousState(currentState);
     this.currentContext.setCurrentState(nextState);
-    return this;
-  }
-
-  public StateBuilder of(Context currentContext) {
-    validateCurrentState(currentContext);
-    validatePreviousState(this.currentContext, currentContext.getPreviousState());
-    this.currentContext = currentContext;
     return this;
   }
 
