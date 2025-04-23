@@ -1,4 +1,4 @@
-package com.demo.poc.commons.custom.states.enums;
+package com.demo.poc.commons.custom.states;
 
 import java.util.Set;
 import lombok.Getter;

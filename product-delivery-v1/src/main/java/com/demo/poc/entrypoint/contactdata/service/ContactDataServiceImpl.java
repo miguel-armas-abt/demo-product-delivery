@@ -43,7 +43,7 @@ public class ContactDataServiceImpl implements ContactDataService {
     return Uni.combine().all()
         .unis(pendingOrderUni, contactDataUni)
         .with((pendingOrder, contactData) -> contactDataContextMapper.toContext(pendingOrder, contactData, request))
-        .flatMap(this.stateDispatcher::dispatch)
+        .flatMap(this.stateDispatcher::next)
         .map(context -> {
           ContextResponse contextResponse = contextMapper.toResponse(context);
           return responseMapper.toResponse(contextResponse, context.getContactData().getAddresses());

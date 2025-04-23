@@ -19,18 +19,25 @@ public enum ErrorDictionary {
   //system=00
   INVALID_FIELD("01.00.01", "Invalid field", BAD_REQUEST, InvalidFieldException.class),
 
-  //custom=01
-  NO_SUCH_PENDING_ORDER("01.01.01", "No such pending order", NOT_FOUND, NoSuchPendingOrderException.class),
-  EMAIL_NOT_FOUND("01.01.02", "No valid email found", NOT_FOUND, EmailNotFoundException.class),
-  PHONE_NOT_FOUND("01.01.03", "No valid phone number found", NOT_FOUND, EmailNotFoundException.class),
-  INVALID_PREVIOUS_STATE("01.01.04", "Invalid previous state", BAD_REQUEST, InvalidPreviousStateException.class),
-  INVALID_NEXT_STATE("01.01.05", "Invalid next state", BAD_REQUEST, InvalidPreviousStateException.class),
-  INVALID_CURRENT_STATE("01.01.06", "Invalid current state", INTERNAL_SERVER_ERROR, InvalidCurrentStateException.class),
+  //others=01
   ERROR_PARSING_JSON("01.01.07", "Error parsing JSON", INTERNAL_SERVER_ERROR, ParsingJsonException.class),
-  NOT_FOUND_AVAILABLE_DATES("01.01.08", "Not found available dates", NOT_FOUND, NotFoundAvailableDatesException.class),
-  ON_STATE_ANNOTATION_NOT_FOUND("01.01.09", "@OnState annotation not found", INTERNAL_SERVER_ERROR, OnStateAnnotationNotFoundException.class),
-  STATE_HANDLER_NOT_FOUND("01.01.10", "StateHandler not found for state", INTERNAL_SERVER_ERROR, OnStateAnnotationNotFoundException.class),
-  NO_SUCH_TIME_RANGE_ID("01.01.11", "No such time range ID", INTERNAL_SERVER_ERROR, NoSuchTimeRangeIdException.class),;
+
+  //state pattern=02
+  INVALID_CURRENT_STATE("01.02.01", "Invalid current state", BAD_REQUEST, InvalidCurrentStateException.class),
+  NO_SUCH_STATE_HANDLER("01.02.02", "No such state handler", INTERNAL_SERVER_ERROR, NoSuchStateHandlerException.class),
+  NULL_CONTACT_DATA_CONTEXT("01.02.03", "Null contact data context", INTERNAL_SERVER_ERROR, NullContactDataContextException.class),
+  NULL_AVAILABLE_DATE_CONTEXT("01.02.04", "Null available date context", INTERNAL_SERVER_ERROR, NullAvailableDatesException.class),
+
+  //contact-data=03
+  NO_SUCH_PENDING_ORDER("01.03.01", "No such pending order", NOT_FOUND, NoSuchPendingOrderException.class),
+  EMAIL_NOT_FOUND("01.03.02", "No valid email found", NOT_FOUND, EmailNotFoundException.class),
+  PHONE_NOT_FOUND("01.03.03", "No valid phone number found", NOT_FOUND, EmailNotFoundException.class),
+
+  //available-dates=04
+  NOT_FOUND_AVAILABLE_DATES("01.04.01", "Not found available dates", NOT_FOUND, NotFoundAvailableDatesException.class),
+
+  //reservation=05
+  NO_SUCH_TIME_RANGE_ID("01.05.01", "No such time range ID", BAD_REQUEST, NoSuchTimeRangeIdException.class),;
 
   private final String code;
   private final String message;

@@ -1,6 +1,6 @@
 package com.demo.poc.commons.custom.states.context;
 
-import com.demo.poc.commons.custom.states.enums.State;
+import com.demo.poc.commons.custom.states.State;
 import lombok.Getter;
 import lombok.Setter;
 

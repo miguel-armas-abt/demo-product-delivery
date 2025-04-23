@@ -2,15 +2,13 @@ package com.demo.poc.commons.custom.states.mapper;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-import java.util.Optional;
 
 import com.demo.poc.commons.core.config.MappingConfig;
 import com.demo.poc.commons.custom.exceptions.ParsingJsonException;
-import com.demo.poc.commons.custom.exceptions.InvalidCurrentStateException;
 import com.demo.poc.commons.custom.states.context.Context;
 import com.demo.poc.commons.custom.states.context.ProductDeliveryContext;
 import com.demo.poc.commons.custom.states.dto.response.ContextResponse;
-import com.demo.poc.commons.custom.states.enums.State;
+import com.demo.poc.commons.custom.states.State;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.mapstruct.Mapper;
