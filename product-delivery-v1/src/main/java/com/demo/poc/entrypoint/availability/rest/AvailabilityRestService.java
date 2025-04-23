@@ -22,7 +22,7 @@ public class AvailabilityRestService {
   private final AvailabilityService availabilityService;
 
   @POST
-  public Uni<AvailabilityResponseDto> getContactData(AvailabilityRequestDto request) {
+  public Uni<AvailabilityResponseDto> getAvailableDates(AvailabilityRequestDto request) {
     return availabilityService.getAvailableDates(request);
   }
 }

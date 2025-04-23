@@ -12,14 +12,14 @@ import org.eclipse.microprofile.rest.client.ext.ClientHeadersFactory;
 @RequiredArgsConstructor
 public class AvailabilityHeaderFactory implements ClientHeadersFactory {
 
-  private static final String SERVICE_NAME_PRODUCT = "availability";
+  private static final String SERVICE_NAME = "availability";
   private final ApplicationProperties properties;
 
   @Override
   public MultivaluedMap<String, String> update(MultivaluedMap<String, String> incomingHeaders,
                                                MultivaluedMap<String, String> outgoingHeaders) {
 
-    HeaderTemplate headerTemplate = properties.restClients().get(SERVICE_NAME_PRODUCT).request().headers();
+    HeaderTemplate headerTemplate = properties.restClients().get(SERVICE_NAME).request().headers();
     return HeadersFiller.buildHeaders(headerTemplate, incomingHeaders);
   }
 }

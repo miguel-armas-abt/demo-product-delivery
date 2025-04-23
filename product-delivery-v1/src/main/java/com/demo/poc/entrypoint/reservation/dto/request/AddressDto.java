@@ -1,24 +1,26 @@
-package com.demo.poc.commons.custom.states.context.contactdata;
+package com.demo.poc.entrypoint.reservation.dto.request;
 
-import java.io.Serializable;
-
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Builder
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddressContext implements Serializable {
+public class AddressDto implements Serializable {
 
+  @NotEmpty
   private String priority;
-  private String type;
+
   private String ubigeo;
-  private StreetContext street;
+  private StreetDto street;
   private BlockDto block;
   private String inside;
   private String references;
@@ -28,7 +30,7 @@ public class AddressContext implements Serializable {
   @Getter
   @AllArgsConstructor
   @NoArgsConstructor
-  public static class StreetContext implements Serializable{
+  public static class StreetDto implements Serializable{
 
     private String name;
     private String type;

@@ -1,4 +1,4 @@
-package com.demo.poc.entrypoint.contactdata.repository.contactdata;
+package com.demo.poc.entrypoint.reservation.repository;
 
 import com.demo.poc.commons.core.properties.restclient.HeaderTemplate;
 import com.demo.poc.commons.core.restclient.utils.HeadersFiller;
@@ -10,9 +10,9 @@ import org.eclipse.microprofile.rest.client.ext.ClientHeadersFactory;
 
 @Provider
 @RequiredArgsConstructor
-public class ContactDataHeaderFactory implements ClientHeadersFactory {
+public class ReservationHeaderFactory implements ClientHeadersFactory {
 
-  private static final String SERVICE_NAME = "contact-data";
+  private static final String SERVICE_NAME = "availability";
   private final ApplicationProperties properties;
 
   @Override

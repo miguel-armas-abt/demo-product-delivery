@@ -5,6 +5,7 @@ import com.demo.poc.commons.core.errors.exceptions.RestClientException;
 import com.demo.poc.commons.core.errors.exceptions.GenericException;
 import com.demo.poc.commons.core.logging.ThreadContextInjector;
 import com.demo.poc.commons.custom.properties.ApplicationProperties;
+import jakarta.ws.rs.ProcessingException;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.MediaType;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +29,10 @@ public class ErrorInterceptor implements ExceptionMapper<Throwable> {
 
     if (throwable instanceof WebApplicationException webApplicationException) {
       status = Response.Status.fromStatusCode(webApplicationException.getResponse().getStatus());
+    }
+
+    if (throwable instanceof ProcessingException) {
+      status = Response.Status.REQUEST_TIMEOUT;
     }
 
     if (throwable instanceof RestClientException restClientException) {

@@ -9,6 +9,7 @@ import com.demo.poc.commons.custom.states.context.ProductDeliveryContext;
 import com.demo.poc.commons.custom.enums.Priority;
 import com.demo.poc.commons.custom.exceptions.EmailNotFoundException;
 import com.demo.poc.commons.custom.exceptions.PhoneNotFoundException;
+import com.demo.poc.commons.custom.states.enums.State;
 import com.demo.poc.entrypoint.contactdata.dto.request.ContactDataRequestDto;
 import com.demo.poc.entrypoint.contactdata.repository.contactdata.wrapper.response.ContactDataResponseWrapper;
 import com.demo.poc.entrypoint.contactdata.repository.orders.wrapper.response.PendingOrderResponseWrapper;
@@ -35,6 +36,7 @@ public interface ContactDataContextMapper {
     ProductDeliveryContext context = baseContext(pendingOrder, contactData);
     context.getContactData().setEmail(selectEmail(request.getCustomer().getDeliveryEmail(), contactData.getEmails()));
     context.getContactData().setPhone(selectPhone(request.getCustomer().getDeliveryPhone(), contactData.getPhones()));
+    context.setCurrentState(State.firstState());
     return context;
   }
 

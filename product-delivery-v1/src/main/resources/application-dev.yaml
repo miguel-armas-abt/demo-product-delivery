@@ -12,6 +12,9 @@ configuration:
     availability:
       request:
         endpoint: http://${AVAILABILITY_DOMAIN:localhost:8021}/poc/delivery-availability/v1/
+    reservation:
+      request:
+        endpoint: http://${AVAILABILITY_DOMAIN:localhost:8021}/poc/delivery-coordination/v1/
 
 quarkus:
   rest-client:
@@ -23,4 +26,7 @@ quarkus:
       verify-host: false
     availability:
       url: ${configuration.rest-clients.availability.request.endpoint}
+      verify-host: false
+    reservation:
+      url: ${configuration.rest-clients.reservation.request.endpoint}
       verify-host: false

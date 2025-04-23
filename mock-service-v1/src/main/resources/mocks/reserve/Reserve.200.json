@@ -1,3 +1,5 @@
 {
-  "deliveryCode": "49202408190000000000"
+  "reservationId": "49202408190000000000",
+  "retry": false,
+  "availableDates": []
 }

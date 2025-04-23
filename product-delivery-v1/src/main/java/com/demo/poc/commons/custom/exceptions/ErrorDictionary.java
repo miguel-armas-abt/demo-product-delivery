@@ -27,7 +27,10 @@ public enum ErrorDictionary {
   INVALID_NEXT_STATE("01.01.05", "Invalid next state", BAD_REQUEST, InvalidPreviousStateException.class),
   INVALID_CURRENT_STATE("01.01.06", "Invalid current state", INTERNAL_SERVER_ERROR, InvalidCurrentStateException.class),
   ERROR_PARSING_JSON("01.01.07", "Error parsing JSON", INTERNAL_SERVER_ERROR, ParsingJsonException.class),
-  NOT_FOUND_AVAILABLE_DATES("01.01.08", "Not found available dates", NOT_FOUND, NotFoundAvailableDatesException.class),;
+  NOT_FOUND_AVAILABLE_DATES("01.01.08", "Not found available dates", NOT_FOUND, NotFoundAvailableDatesException.class),
+  ON_STATE_ANNOTATION_NOT_FOUND("01.01.09", "@OnState annotation not found", INTERNAL_SERVER_ERROR, OnStateAnnotationNotFoundException.class),
+  STATE_HANDLER_NOT_FOUND("01.01.10", "StateHandler not found for state", INTERNAL_SERVER_ERROR, OnStateAnnotationNotFoundException.class),
+  NO_SUCH_TIME_RANGE_ID("01.01.11", "No such time range ID", INTERNAL_SERVER_ERROR, NoSuchTimeRangeIdException.class),;
 
   private final String code;
   private final String message;

@@ -36,7 +36,7 @@ public enum State {
 
     public abstract Set<State> nextStates();
 
-    public static State firstSate() {
+    public static State firstState() {
         return CONTACT_DATA;
     }
 
