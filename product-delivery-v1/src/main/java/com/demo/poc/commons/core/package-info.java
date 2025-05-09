@@ -1,12 +1,15 @@
 /**
- * <h1>Core Library - Basic</h1>
+ * <h1>Core Library - Quarkus</h1>
  *
- * <p>This package contains the core config classes for Quarkus.</p>
- *
- * @version 1.1
  * <ul>
- *   <li>Last updated: 25/04</>
- *   <li>Refactor of param mappers.</>
+ *   <li>@version 1.4 - [09/05/2025]
+ *    <ul>
+ *      <li>Logging with MDC - core.logging
+ *      <li>Header fillers for rest clients - core.restclient.utils
+ *      <li>Error message selector for rest clients - core.errors.selector
+ *      <li>Error message selector for server - core.errors.selector
+ *      <li>Body & param validator - core.validations
+ *    </ul>
  * </ul>
  */
 package com.demo.poc.commons.core;

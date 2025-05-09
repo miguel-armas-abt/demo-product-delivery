@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 @Getter
@@ -19,7 +20,13 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class ErrorDto implements Serializable  {
 
+    @Serial
+    private static final long serialVersionUID = 281390055501829628L;
+
     public static final String CODE_DEFAULT = "Default";
+
+    @JsonProperty("origin")
+    private ErrorOrigin origin;
 
     private String code;
 
@@ -30,6 +37,7 @@ public class ErrorDto implements Serializable  {
             .builder()
             .code(CODE_DEFAULT)
             .message(getMatchMessage(properties, CODE_DEFAULT))
+            .origin(ErrorOrigin.OWN)
             .build();
     }
 

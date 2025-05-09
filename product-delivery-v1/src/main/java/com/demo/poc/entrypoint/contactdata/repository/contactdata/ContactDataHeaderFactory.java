@@ -20,6 +20,6 @@ public class ContactDataHeaderFactory implements ClientHeadersFactory {
                                                MultivaluedMap<String, String> outgoingHeaders) {
 
     HeaderTemplate headerTemplate = properties.restClients().get(SERVICE_NAME).request().headers();
-    return HeadersFiller.buildHeaders(headerTemplate, incomingHeaders);
+    return HeadersFiller.fillHeaders(headerTemplate, incomingHeaders);
   }
 }

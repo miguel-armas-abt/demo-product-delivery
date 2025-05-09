@@ -2,10 +2,10 @@ package com.demo.poc.commons.core.interceptor.error;
 
 import java.util.stream.Collectors;
 
+import com.demo.poc.commons.core.constants.Symbol;
 import com.demo.poc.commons.core.errors.dto.ErrorDto;
-import com.demo.poc.commons.core.logging.ThreadContextInjector;
+import com.demo.poc.commons.core.logging.ErrorThreadContextInjector;
 import com.demo.poc.commons.custom.exceptions.ErrorDictionary;
-import com.demo.poc.commons.custom.properties.ApplicationProperties;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.ws.rs.core.MediaType;
@@ -16,12 +16,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ConstraintErrorInterceptor implements ExceptionMapper<ConstraintViolationException> {
 
-  private final ApplicationProperties properties;
-  private final ThreadContextInjector threadContextInjector;
+  private final ErrorThreadContextInjector contextInjector;
 
   @Override
   public Response toResponse(ConstraintViolationException exception) {
-    generateTrace(exception);
+    contextInjector.populateFromException(exception);
 
     ErrorDto error = extractError(exception);
     Response.Status status = Response.Status.BAD_REQUEST;
@@ -32,16 +31,12 @@ public class ConstraintErrorInterceptor implements ExceptionMapper<ConstraintVio
         .build();
   }
 
-  private void generateTrace(Throwable throwable) {
-    threadContextInjector.populateFromException(throwable);
-  }
-
   private static ErrorDto extractError(ConstraintViolationException exception) {
     String message = exception
         .getConstraintViolations()
         .stream()
         .map(ConstraintViolation::getMessage)
-        .collect(Collectors.joining(";"));
+        .collect(Collectors.joining(Symbol.COMMA_WITH_SPACE));
 
     return ErrorDto.builder()
         .code(ErrorDictionary.INVALID_FIELD.getCode())

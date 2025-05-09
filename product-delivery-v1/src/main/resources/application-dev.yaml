@@ -6,15 +6,66 @@ configuration:
     contact-data:
       request:
         endpoint: http://${CONTACT_DATA_DOMAIN:localhost:8021}/poc/customer-search/v1/
+        headers:
+          provided:
+            Content-Type: application/json
+          forwarded:
+            channelId: channelId
+          auto-generated:
+            timestamp: TIMESTAMP
+          tracing:
+            traceParent: TRACE_PARENT
+      performance:
+        timeout: GOOD
+        concurrency: MEDIUM
+
     pending-orders:
       request:
         endpoint: http://${PENDING_ORDERS_DOMAIN:localhost:8021}/poc/delivery-requests/v1/
+        headers:
+          provided:
+            Content-Type: application/json
+          forwarded:
+            channelId: channelId
+          auto-generated:
+            timestamp: TIMESTAMP
+          tracing:
+            traceParent: TRACE_PARENT
+      performance:
+        timeout: GOOD
+        concurrency: MEDIUM
+
     availability:
       request:
         endpoint: http://${AVAILABILITY_DOMAIN:localhost:8021}/poc/delivery-availability/v1/
+        headers:
+          provided:
+            Content-Type: application/json
+          forwarded:
+            channelId: channelId
+          auto-generated:
+            timestamp: TIMESTAMP
+          tracing:
+            traceParent: TRACE_PARENT
+      performance:
+        timeout: GOOD
+        concurrency: MEDIUM
+
     reservation:
       request:
         endpoint: http://${AVAILABILITY_DOMAIN:localhost:8021}/poc/delivery-coordination/v1/
+        headers:
+          provided:
+            Content-Type: application/json
+          forwarded:
+            channelId: channelId
+          auto-generated:
+            timestamp: TIMESTAMP
+          tracing:
+            traceParent: TRACE_PARENT
+      performance:
+        timeout: GOOD
+        concurrency: MEDIUM
 
 quarkus:
   rest-client:

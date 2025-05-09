@@ -2,7 +2,7 @@ package com.demo.poc.commons.core.config;
 
 import com.demo.poc.commons.core.interceptor.error.ConstraintErrorInterceptor;
 import com.demo.poc.commons.core.interceptor.error.ErrorInterceptor;
-import com.demo.poc.commons.core.logging.ThreadContextInjector;
+import com.demo.poc.commons.core.logging.ErrorThreadContextInjector;
 import com.demo.poc.commons.custom.properties.ApplicationProperties;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
@@ -12,13 +12,12 @@ public class InterceptorConfig {
 
   @Produces
   public ErrorInterceptor errorInterceptor(ApplicationProperties properties,
-                                           ThreadContextInjector threadContextInjector) {
-    return new ErrorInterceptor(properties, threadContextInjector);
+                                           ErrorThreadContextInjector contextInjector) {
+    return new ErrorInterceptor(properties, contextInjector);
   }
 
   @Produces
-  public ConstraintErrorInterceptor constraintErrorInterceptor(ApplicationProperties properties,
-                                                               ThreadContextInjector threadContextInjector) {
-    return new ConstraintErrorInterceptor(properties, threadContextInjector);
+  public ConstraintErrorInterceptor constraintErrorInterceptor(ErrorThreadContextInjector contextInjector) {
+    return new ConstraintErrorInterceptor(contextInjector);
   }
 }

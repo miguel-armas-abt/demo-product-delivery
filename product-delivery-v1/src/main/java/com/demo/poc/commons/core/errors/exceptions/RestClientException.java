@@ -1,21 +1,20 @@
 package com.demo.poc.commons.core.errors.exceptions;
 
 import com.demo.poc.commons.core.errors.dto.ErrorDto;
-import jakarta.ws.rs.core.Response.Status;
+import com.demo.poc.commons.core.errors.dto.ErrorOrigin;
+import jakarta.ws.rs.core.Response;
 import lombok.Getter;
 
 @Getter
-public class RestClientException extends RuntimeException {
+public class RestClientException extends GenericException {
 
-  private final ErrorDto errorDetail;
-  private final Status httpStatusCode;
-
-  public RestClientException(String code, String message, Status httpStatusCode) {
+  public RestClientException(String code, String message, ErrorOrigin errorOrigin, Response.Status httpStatusCode) {
     super(message);
+    this.httpStatus = httpStatusCode;
     this.errorDetail = ErrorDto.builder()
+        .origin(errorOrigin)
         .code(code)
         .message(message)
         .build();
-    this.httpStatusCode = httpStatusCode;
   }
 }
