@@ -39,7 +39,8 @@ java -jar target/product-delivery-v1-1.0-SNAPSHOT-runner.jar
 mvn clean package -Pnative
 ```
 
-⚙️ Ejecutar imagen nativa
+⚙️ Ejecutar imagen nativa <br>
+Para pruebas locales, desactiva desde el `pom.xml` la siguiente propiedad: `quarkus.native.container-build`
 ```sh
 ./target/product-delivery-v1-1.0-SNAPSHOT-runner.exe
 ```

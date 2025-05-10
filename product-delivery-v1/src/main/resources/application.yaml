@@ -8,3 +8,86 @@ quarkus:
       enable: true
       json:
         pretty-print: false
+
+  rest-client:
+    pending-orders:
+      url: ${configuration.rest-clients.pending-orders.request.endpoint}
+      verify-host: false
+    contact-data:
+      url: ${configuration.rest-clients.contact-data.request.endpoint}
+      verify-host: false
+    availability:
+      url: ${configuration.rest-clients.availability.request.endpoint}
+      verify-host: false
+    reservation:
+      url: ${configuration.rest-clients.reservation.request.endpoint}
+      verify-host: false
+
+configuration:
+  error-messages:
+    Default: No hemos podido realizar tu operación. Estamos trabajando para solucionar el inconveniente.
+
+  rest-clients:
+    contact-data:
+      request:
+        endpoint: ${CONTACT_DATA_ENDPOINT}
+        headers:
+          provided:
+            Content-Type: application/json
+          forwarded:
+            channelId: channelId
+          auto-generated:
+            timestamp: TIMESTAMP
+          tracing:
+            traceParent: TRACE_PARENT
+      performance:
+        timeout: GOOD
+        concurrency: MEDIUM
+
+    pending-orders:
+      request:
+        endpoint: ${PENDING_ORDERS_ENDPOINT}
+        headers:
+          provided:
+            Content-Type: application/json
+          forwarded:
+            channelId: channelId
+          auto-generated:
+            timestamp: TIMESTAMP
+          tracing:
+            traceParent: TRACE_PARENT
+      performance:
+        timeout: GOOD
+        concurrency: MEDIUM
+
+    availability:
+      request:
+        endpoint: ${AVAILABILITY_ENDPOINT}
+        headers:
+          provided:
+            Content-Type: application/json
+          forwarded:
+            channelId: channelId
+          auto-generated:
+            timestamp: TIMESTAMP
+          tracing:
+            traceParent: TRACE_PARENT
+      performance:
+        timeout: GOOD
+        concurrency: MEDIUM
+
+    reservation:
+      request:
+        endpoint: ${RESERVATION_ENDPOINT}
+        headers:
+          provided:
+            Content-Type: application/json
+          forwarded:
+            channelId: channelId
+          auto-generated:
+            timestamp: TIMESTAMP
+          tracing:
+            traceParent: TRACE_PARENT
+      performance:
+        timeout: GOOD
+        concurrency: MEDIUM
