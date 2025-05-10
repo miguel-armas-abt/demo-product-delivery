@@ -202,19 +202,22 @@
       <properties>
         <skipITs>false</skipITs>
 
-        <!-- creates the jar in addition to the native image -->
-        <quarkus.package.jar.enabled>true</quarkus.package.jar.enabled>
+        <quarkus.package.jar.enabled>true</quarkus.package.jar.enabled> <!-- also build JVM jar -->
 
-        <!-- fast-jar: separate classes and dependencies for faster startup (better performance in production) -->
-        <!-- uber-jar: packages everything (code + dependencies) into a single fat jar -->
+        <!-- fast-jar: separate code and dependencies for the better performance -->
+        <!-- uber-jar: code + dependencies into a single fat jar -->
         <!-- mutable-jar: similar to fast-jar but allows hot reloading of classes during development -->
         <quarkus.package.jar.type>fast-jar</quarkus.package.jar.type>
 
-        <!-- allows native image creation -->
-        <quarkus.native.enabled>true</quarkus.native.enabled>
 
-        <!-- generates the intermediate or complete artifacts necessary for a native compilation -->
-        <quarkus.native.sources-only>false</quarkus.native.sources-only>
+        <quarkus.native.enabled>true</quarkus.native.enabled> <!-- enable native-image build -->
+        <quarkus.native.sources-only>false</quarkus.native.sources-only> <!-- include native artifacts -->
+        <quarkus.native.container-build>true</quarkus.native.container-build> <!-- generate a Linux ELF binary instead of a Windows .exe -->
+
+        <quarkus.package.jar.user-configured-ignored-entries>
+          META-INF/maven/org.jctools/jctools-core/pom.xml,
+          META-INF/maven/io.netty/netty-common/pom.xml
+        </quarkus.package.jar.user-configured-ignored-entries> <!-- drop duplicate META-INF entries -->
       </properties>
     </profile>
   </profiles>

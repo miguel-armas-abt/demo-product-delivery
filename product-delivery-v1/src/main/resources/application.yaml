@@ -2,7 +2,7 @@ quarkus:
   application:
     name: product-delivery-v1
   http:
-    port: ${SERVER_PORT:8016}
+    port: ${SERVER_PORT:8080}
   log:
     console:
       enable: true

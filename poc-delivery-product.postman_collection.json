@@ -150,12 +150,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8016/poc/product-delivery/v1/contact-data",
+					"raw": "http://localhost:8080/poc/product-delivery/v1/contact-data",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8016",
+					"port": "8080",
 					"path": [
 						"poc",
 						"product-delivery",
@@ -192,12 +192,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8016/poc/product-delivery/v1/available-dates",
+					"raw": "http://localhost:8080/poc/product-delivery/v1/available-dates",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8016",
+					"port": "8080",
 					"path": [
 						"poc",
 						"product-delivery",
@@ -234,12 +234,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8016/poc/product-delivery/v1/reserve",
+					"raw": "http://localhost:8080/poc/product-delivery/v1/reserve",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8016",
+					"port": "8080",
 					"path": [
 						"poc",
 						"product-delivery",
