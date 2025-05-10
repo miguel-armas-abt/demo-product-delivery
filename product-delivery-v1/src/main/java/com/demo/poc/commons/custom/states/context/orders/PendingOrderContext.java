@@ -2,6 +2,7 @@ package com.demo.poc.commons.custom.states.context.orders;
 
 import java.io.Serializable;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,6 +14,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@RegisterForReflection
 public class PendingOrderContext implements Serializable {
 
   private String id;

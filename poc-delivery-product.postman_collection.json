@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "e06f7d2b-674a-452c-b4a6-4f74bc331cdf",
+		"_postman_id": "c69dc8f2-442b-4783-ab0b-88f4279a451e",
 		"name": "poc-delivery-product",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33527392"
+		"_exporter_id": "13773998"
 	},
 	"item": [
 		{
@@ -128,7 +128,18 @@
 			"name": "1. contact-data",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "traceParent",
+						"value": "{{traceParent}}",
+						"type": "text"
+					},
+					{
+						"key": "channelId",
+						"value": "WEB",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"pendingOrderId\": \"20231030182329822184\",\r\n    \"customer\": {\r\n        \"customerId\": \"60777575\",\r\n        \"deliveryEmail\": \"linus.torvalds@email.com\",\r\n        \"deliveryPhone\": \"987654321\"\r\n    }\r\n}",
@@ -159,7 +170,18 @@
 			"name": "2. available-dates",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "traceParent",
+						"value": "{{traceParent}}",
+						"type": "text"
+					},
+					{
+						"key": "channelId",
+						"value": "WEB",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"ubigeo\": \"150101\",\r\n    \"customerId\": \"60777575\",\r\n    \"authorizeThird\": true,\r\n    \"context\": {\r\n        \"ciphered\": \"eyJjdXJyZW50U3RhdGUiOiJBVkFJTEFCTEVfREFURVMiLCJwcmV2aW91c1N0YXRlIjoiQ09OVEFDVF9EQVRBIiwicGVuZGluZ09yZGVyIjp7ImlkIjoiMjAyMzEwMzAxODIzMjk4MjIxODQiLCJjaGFubmVsSWQiOiJBUFAiLCJjcmVhdGlvbkRhdGUiOiIyMDIzMTAzMCIsInB1cmNoYXNlQ29kZSI6IjAxIn0sImNvbnRhY3REYXRhIjp7ImN1c3RvbWVySWQiOiI2MDc3NzU3NSIsImRvY3VtZW50VHlwZSI6IkROSSIsImRvY3VtZW50TnVtYmVyIjoiNzY1NDMyMTAiLCJuYW1lcyI6IkxpbnVzIiwic3VybmFtZXMiOiJUb3J2YWxkcyIsImVtYWlsIjoiTElOVVMuVE9SVkFMRFNARU1BSUwuQ09NIiwicGhvbmUiOiI5ODc2NTQzMjEiLCJhZGRyZXNzZXMiOlt7InByaW9yaXR5IjoiMSIsInR5cGUiOiJIT01FIiwidWJpZ2VvIjoiMTUwMTAxIiwic3RyZWV0Ijp7Im5hbWUiOiJKYXZpZXIgUHJhZG8iLCJ0eXBlIjoiQVZFTklEQSIsIm51bWJlciI6IjEwMTAifSwiYmxvY2siOnsibmFtZSI6Ik16IEwiLCJsb3QiOiI5In0sImluc2lkZSI6IiIsInJlZmVyZW5jZXMiOiJBbCBjb3N0YWRvIGRlbCBjaGlmYSBGdW5nIFBhbyJ9XX0sImF2YWlsYWJsZURhdGVzIjpudWxsLCJyZXNlcnZhdGlvbiI6bnVsbH0=\"\r\n    }\r\n}",
@@ -190,10 +212,21 @@
 			"name": "3. reservation",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "traceParent",
+						"value": "{{traceParent}}",
+						"type": "text"
+					},
+					{
+						"key": "channelId",
+						"value": "WEB",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"customerId\": \"60777575\",\r\n    \"timeRangeId\": \"3375e6c9-4e89-46af-a996-91812c024ff5\",\r\n    \"address\": {\r\n        \"priority\": \"0\"\r\n    },\r\n    \"context\": {\r\n        \"ciphered\": \"eyJjdXJyZW50U3RhdGUiOiJSRVNFUlZBVElPTiIsInByZXZpb3VzU3RhdGUiOiJBVkFJTEFCTEVfREFURVMiLCJwZW5kaW5nT3JkZXIiOnsiaWQiOiIyMDIzMTAzMDE4MjMyOTgyMjE4NCIsImNoYW5uZWxJZCI6IkFQUCIsImNyZWF0aW9uRGF0ZSI6IjIwMjMxMDMwIiwicHVyY2hhc2VDb2RlIjoiMDEifSwiY29udGFjdERhdGEiOnsiY3VzdG9tZXJJZCI6IjYwNzc3NTc1IiwiZG9jdW1lbnRUeXBlIjoiRE5JIiwiZG9jdW1lbnROdW1iZXIiOiI3NjU0MzIxMCIsIm5hbWVzIjoiTGludXMiLCJzdXJuYW1lcyI6IlRvcnZhbGRzIiwiZW1haWwiOiJMSU5VUy5UT1JWQUxEU0BFTUFJTC5DT00iLCJwaG9uZSI6Ijk4NzY1NDMyMSIsImFkZHJlc3NlcyI6W3sicHJpb3JpdHkiOiIxIiwidHlwZSI6IkhPTUUiLCJ1YmlnZW8iOiIxNTAxMDEiLCJzdHJlZXQiOnsibmFtZSI6IkphdmllciBQcmFkbyIsInR5cGUiOiJBVkVOSURBIiwibnVtYmVyIjoiMTAxMCJ9LCJibG9jayI6eyJuYW1lIjoiTXogTCIsImxvdCI6IjkifSwiaW5zaWRlIjoiIiwicmVmZXJlbmNlcyI6IkFsIGNvc3RhZG8gZGVsIGNoaWZhIEZ1bmcgUGFvIn1dfSwiYXZhaWxhYmxlRGF0ZXMiOlt7ImRhdGUiOiIyMDI0MDQyNiIsInRpbWVSYW5nZXMiOlt7ImlkIjoiMDc3N2MyNWYtNWU3NC00ZjM4LTlmMTctNWM2ZDg4OWI2MGJkIiwidmFsdWUiOiIwODozMCAtIDExOjMwIn0seyJpZCI6ImJmNzc4MTMzLWU2M2ItNDA5ZC1hNWViLTc1ZWZlNzU2NmIwZSIsInZhbHVlIjoiMTE6MzAgLSAxNDozMCJ9LHsiaWQiOiJjNTE3YWNiMi01ZTBjLTQxNjYtOTJjZi0zOWE3YzExNzQyYjgiLCJ2YWx1ZSI6IjE0OjAwIC0gMTc6MDAifV19LHsiZGF0ZSI6IjIwMjQwNDI3IiwidGltZVJhbmdlcyI6W3siaWQiOiJhZTM5OWExMC1lMzBiLTQ3NGYtYmU5Ny0yN2YxOTA5YjE1OTIiLCJ2YWx1ZSI6IjA4OjMwIC0gMTE6MzAifSx7ImlkIjoiZjhjNDZjYWEtMTg1Mi00NTY3LWJjMTYtYWJjOWVhZTIxNGFiIiwidmFsdWUiOiIxMTozMCAtIDE0OjMwIn0seyJpZCI6IjMzNzVlNmM5LTRlODktNDZhZi1hOTk2LTkxODEyYzAyNGZmNSIsInZhbHVlIjoiMTQ6MDAgLSAxNzowMCJ9XX1dLCJyZXNlcnZhdGlvbiI6bnVsbH0=\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"customerId\": \"60777575\",\r\n    \"timeRangeId\": \"e89b6419-226f-4d49-b94e-e4d2a91d2471\",\r\n    \"address\": {\r\n        \"priority\": \"0\"\r\n    },\r\n    \"context\": {\r\n        \"ciphered\": \"eyJjdXJyZW50U3RhdGUiOiJSRVNFUlZBVElPTiIsInByZXZpb3VzU3RhdGUiOiJBVkFJTEFCTEVfREFURVMiLCJwZW5kaW5nT3JkZXIiOnsiaWQiOiIyMDIzMTAzMDE4MjMyOTgyMjE4NCIsImNoYW5uZWxJZCI6IkFQUCIsImNyZWF0aW9uRGF0ZSI6IjIwMjMxMDMwIiwicHVyY2hhc2VDb2RlIjoiMDEifSwiY29udGFjdERhdGEiOnsiY3VzdG9tZXJJZCI6IjYwNzc3NTc1IiwiZG9jdW1lbnRUeXBlIjoiRE5JIiwiZG9jdW1lbnROdW1iZXIiOiI3NjU0MzIxMCIsIm5hbWVzIjoiTGludXMiLCJzdXJuYW1lcyI6IlRvcnZhbGRzIiwiZW1haWwiOiJMSU5VUy5UT1JWQUxEU0BFTUFJTC5DT00iLCJwaG9uZSI6Ijk4NzY1NDMyMSIsImFkZHJlc3NlcyI6W3sicHJpb3JpdHkiOiIxIiwidHlwZSI6IkhPTUUiLCJ1YmlnZW8iOiIxNTAxMDEiLCJzdHJlZXQiOnsibmFtZSI6IkphdmllciBQcmFkbyIsInR5cGUiOiJBVkVOSURBIiwibnVtYmVyIjoiMTAxMCJ9LCJibG9jayI6eyJuYW1lIjoiTXogTCIsImxvdCI6IjkifSwiaW5zaWRlIjoiIiwicmVmZXJlbmNlcyI6IkFsIGNvc3RhZG8gZGVsIGNoaWZhIEZ1bmcgUGFvIn1dfSwiYXZhaWxhYmxlRGF0ZXMiOlt7ImRhdGUiOiIyMDI0MDQyNiIsInRpbWVSYW5nZXMiOlt7ImlkIjoiNTJjOGM1ZGYtOGJhNC00NjNhLWI2YzgtMzgxZjcyNjA0NGI4IiwidmFsdWUiOiIwODozMCAtIDExOjMwIn0seyJpZCI6ImU4OWI2NDE5LTIyNmYtNGQ0OS1iOTRlLWU0ZDJhOTFkMjQ3MSIsInZhbHVlIjoiMTE6MzAgLSAxNDozMCJ9LHsiaWQiOiI0ZmVjZTVmZS03NTVkLTRhYTgtOGVmMy1jMDQwOWEyOGUxZWUiLCJ2YWx1ZSI6IjE0OjAwIC0gMTc6MDAifV19XSwicmVzZXJ2YXRpb24iOm51bGx9\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -216,6 +249,41 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"function setTraceParent() {\r",
+					"    const hex = n => [...Array(n)].reduce(s => s + (Math.random()*16|0).toString(16), '');\r",
+					"    const traceId = Math.floor(Date.now()/1e3).toString(16).padStart(8,'0') + hex(24);\r",
+					"\r",
+					"    let spanId;\r",
+					"    do { spanId = hex(16); } while (/^0+$/.test(spanId));\r",
+					"\r",
+					"    //W3C Estandar\r",
+					"    const traceParent = `00-${traceId}-${spanId}-01`;\r",
+					"    pm.globals.set(\"traceParent\", traceParent);\r",
+					"}\r",
+					"\r",
+					"setTraceParent();\r",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

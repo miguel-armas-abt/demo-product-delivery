@@ -7,6 +7,7 @@ import com.demo.poc.commons.custom.states.context.availability.AvailableDateCont
 import com.demo.poc.commons.custom.states.context.contactdata.ContactDataContext;
 import com.demo.poc.commons.custom.states.context.orders.PendingOrderContext;
 import com.demo.poc.commons.custom.states.context.reservation.ReservationContext;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,6 +19,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@RegisterForReflection
 public class ProductDeliveryContext extends Context implements Serializable {
 
   private PendingOrderContext pendingOrder;

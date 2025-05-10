@@ -3,6 +3,7 @@ package com.demo.poc.commons.custom.states.context.contactdata;
 import java.io.Serializable;
 import java.util.List;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,6 +15,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@RegisterForReflection
 public class ContactDataContext implements Serializable {
 
   private String customerId;

@@ -3,6 +3,7 @@ package com.demo.poc.commons.custom.states.context.availability;
 import java.io.Serializable;
 import java.util.List;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,6 +15,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@RegisterForReflection
 public class AvailableDateContext implements Serializable {
 
   private String date;
@@ -24,6 +26,7 @@ public class AvailableDateContext implements Serializable {
   @Getter
   @AllArgsConstructor
   @NoArgsConstructor
+  @RegisterForReflection
   public static class TimeRangeContext implements Serializable {
     private String id;
     private String value;

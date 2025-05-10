@@ -47,11 +47,11 @@
     <!-- reactive rest clients -->
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-rest-client-reactive</artifactId>
+      <artifactId>quarkus-rest-client</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-rest-client-reactive-jackson</artifactId>
+      <artifactId>quarkus-rest-client-jackson</artifactId>
     </dependency>
 
     <!-- reactive stream -->
@@ -191,7 +191,6 @@
     </plugins>
   </build>
 
-  <!-- ToDo: Learn about this profile -->
   <profiles>
     <profile>
       <id>native</id>
@@ -202,8 +201,20 @@
       </activation>
       <properties>
         <skipITs>false</skipITs>
-        <!-- <quarkus.native.enabled>true</quarkus.native.enabled> --> <!-- only native package -->
-        <quarkus.package.type>native</quarkus.package.type> <!-- others packages alternatives -->
+
+        <!-- creates the jar in addition to the native image -->
+        <quarkus.package.jar.enabled>true</quarkus.package.jar.enabled>
+
+        <!-- fast-jar: separate classes and dependencies for faster startup (better performance in production) -->
+        <!-- uber-jar: packages everything (code + dependencies) into a single fat jar -->
+        <!-- mutable-jar: similar to fast-jar but allows hot reloading of classes during development -->
+        <quarkus.package.jar.type>fast-jar</quarkus.package.jar.type>
+
+        <!-- allows native image creation -->
+        <quarkus.native.enabled>true</quarkus.native.enabled>
+
+        <!-- generates the intermediate or complete artifacts necessary for a native compilation -->
+        <quarkus.native.sources-only>false</quarkus.native.sources-only>
       </properties>
     </profile>
   </profiles>
