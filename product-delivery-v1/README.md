@@ -6,7 +6,6 @@
 ## 📋 Core library
 [🌐 Documentación](https://github.com/miguel-armas-abt/backend-core-library) <br>
 [🏷️ Versión](./src/main/java/com/demo/poc/commons/core/package-info.java) <br>
-[⚙️ GraalVM - Guía de instalación](https://github.com/miguel-armas-abt/roadmap-graalvm/blob/main/path/00-setup/README.md) <br>
 
 ---
 
@@ -83,4 +82,36 @@ docker network create --driver bridge common-network
 ⚙️ Ejecutar contenedor
 ```shell
 docker run --rm -p 8080:8080 --env-file ./variables.env --name product-delivery-v1 --network common-network miguelarmasabt/product-delivery:v1.0.1
+```
+
+---
+
+## ▶️ Despliegue con Kubernetes
+
+⚙️ Encender Minikube
+```shell
+docker context use default
+minikube start
+```
+
+⚙️ Crear imagen
+```shell
+eval $(minikube docker-env --shell bash)
+docker build -t miguelarmasabt/product-delivery:v1.0.1 -f ./docker/Dockerfile.native .
+```
+
+⚙️ Crear namespace y aplicar manifiestos
+```shell
+kubectl create namespace delivery
+kubectl apply -f ./k8s.yaml -n delivery
+```
+
+⚙️ Eliminar orquestación
+```shell
+kubectl delete -f ./k8s.yaml -n delivery
+```
+
+⚙️ Port-forward
+```shell
+kubectl port-forward <pod-id> 8080:8080 -n delivery
 ```

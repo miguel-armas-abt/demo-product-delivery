@@ -1,0 +1,117 @@
+---
+# Source: generic-backend-chart/templates/secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: product-delivery-v1-secret
+type: Opaque
+data: {}
+---
+# Source: generic-backend-chart/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: product-delivery-v1-config-map
+data:
+    JAVA_OPTS: "-Xms256M -Xmx256M"
+    CONTACT_DATA_ENDPOINT: "http://mock-service-v1:8082/poc/customer-search/v1/"
+    PENDING_ORDERS_ENDPOINT: "http://mock-service-v1:8082/poc/delivery-requests/v1/"
+    AVAILABILITY_ENDPOINT: "http://mock-service-v1:8082/poc/delivery-availability/v1/"
+    RESERVATION_ENDPOINT: "http://mock-service-v1:8082/poc/delivery-coordination/v1/"
+---
+# Source: generic-backend-chart/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-delivery-v1
+  labels:
+    app: product-delivery-v1
+spec:
+  type: NodePort
+  selector:
+    app: product-delivery-v1
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: product-delivery-v1
+      port: 8080
+      nodePort: 30080
+---
+# Source: generic-backend-chart/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-delivery-v1
+  labels:
+    app: product-delivery-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-delivery-v1
+  template:
+    metadata:
+      labels:
+        app: product-delivery-v1
+    spec:
+      containers:
+        - name: product-delivery-v1
+          image: "miguelarmasabt/product-delivery:v1.0.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "500m"
+            limits:
+              memory: "512Mi"
+              cpu: "1"
+
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 3
+
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 30
+
+          env:
+              - name: JAVA_OPTS
+                valueFrom:
+                  configMapKeyRef:
+                    name: product-delivery-v1-config-map
+                    key: JAVA_OPTS
+
+              - name: CONTACT_DATA_ENDPOINT
+                valueFrom:
+                  configMapKeyRef:
+                    name: product-delivery-v1-config-map
+                    key: CONTACT_DATA_ENDPOINT
+
+              - name: PENDING_ORDERS_ENDPOINT
+                valueFrom:
+                  configMapKeyRef:
+                    name: product-delivery-v1-config-map
+                    key: PENDING_ORDERS_ENDPOINT
+
+              - name: AVAILABILITY_ENDPOINT
+                valueFrom:
+                  configMapKeyRef:
+                    name: product-delivery-v1-config-map
+                    key: AVAILABILITY_ENDPOINT
+
+              - name: RESERVATION_ENDPOINT
+                valueFrom:
+                  configMapKeyRef:
+                    name: product-delivery-v1-config-map
+                    key: RESERVATION_ENDPOINT
