@@ -3,6 +3,7 @@ package com.demo.poc.commons.core.interceptor.error;
 import com.demo.poc.commons.core.constants.Symbol;
 import com.demo.poc.commons.core.errors.dto.ErrorDto;
 import com.demo.poc.commons.core.errors.exceptions.GenericException;
+import com.demo.poc.commons.core.errors.selector.ResponseErrorSelector;
 import com.demo.poc.commons.core.logging.ErrorThreadContextInjector;
 import com.demo.poc.commons.core.logging.enums.LoggingType;
 import com.demo.poc.commons.custom.exceptions.ErrorDictionary;
@@ -25,6 +26,7 @@ public class ErrorInterceptor {
 
   private final ApplicationProperties properties;
   private final ErrorThreadContextInjector contextInjector;
+  private final ResponseErrorSelector responseErrorSelector;
 
   @ServerExceptionMapper
   public RestResponse<ErrorDto> toResponse(Throwable throwable) {
@@ -45,7 +47,7 @@ public class ErrorInterceptor {
     }
 
     if (throwable instanceof GenericException genericException) {
-      error = genericException.getErrorDetail();
+      error = responseErrorSelector.toErrorDto(genericException);
       status = genericException.getHttpStatus();
     }
 

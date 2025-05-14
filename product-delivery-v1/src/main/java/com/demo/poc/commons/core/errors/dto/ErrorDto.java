@@ -2,7 +2,6 @@ package com.demo.poc.commons.core.errors.dto;
 
 import com.demo.poc.commons.core.properties.ConfigurationBaseProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,7 +18,6 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@RegisterForReflection
 public class ErrorDto implements Serializable  {
 
     @Serial

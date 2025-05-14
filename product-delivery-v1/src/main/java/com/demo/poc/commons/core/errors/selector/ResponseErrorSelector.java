@@ -16,7 +16,7 @@ public class ResponseErrorSelector {
 
   private final ConfigurationBaseProperties properties;
 
-  public <T extends Throwable> ErrorDto toErrorDTO(T exception) {
+  public <T extends Throwable> ErrorDto toErrorDto(T exception) {
     ErrorDto error = extractError(exception);
     String selectedCode = selectCustomCode(error);
     error.setCode(selectedCode);

@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import com.demo.poc.commons.core.tracing.enums.ForwardedParam;
 import com.demo.poc.commons.core.tracing.enums.TraceParam;
-import io.quarkus.runtime.annotations.RegisterForReflection;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
@@ -18,7 +17,6 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@RegisterForReflection //POJOs not referenced by JPA entities or JAX-RS endpoints
 public class DefaultHeaders implements Serializable {
 
     @Pattern(regexp = ForwardedParam.Constants.CHANNEL_ID_REGEX)
