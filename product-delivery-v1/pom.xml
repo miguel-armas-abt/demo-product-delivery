@@ -68,6 +68,12 @@
       <artifactId>smallrye-mutiny-vertx-web-client</artifactId>
     </dependency>
 
+    <!-- health checks -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-health</artifactId>
+    </dependency>
+
     <!-- dependency injection -->
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -208,7 +214,6 @@
         <!-- uber-jar: code + dependencies into a single fat jar -->
         <!-- mutable-jar: similar to fast-jar but allows hot reloading of classes during development -->
         <quarkus.package.jar.type>fast-jar</quarkus.package.jar.type>
-
 
         <quarkus.native.enabled>true</quarkus.native.enabled> <!-- enable native-image build -->
         <quarkus.native.sources-only>false</quarkus.native.sources-only> <!-- include native artifacts -->

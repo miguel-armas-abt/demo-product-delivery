@@ -19,6 +19,7 @@ public enum ErrorDictionary {
 
   //system=00
   INVALID_FIELD("01.00.01", "Invalid field", BAD_REQUEST, InvalidFieldException.class),
+  NO_SUCH_PARAM_MAPPER("01.00.02", "No such param mapper", INTERNAL_SERVER_ERROR, NoSuchParamMapperException.class),
 
   //others=01
   ERROR_PARSING_JSON("01.01.07", "Error parsing JSON", INTERNAL_SERVER_ERROR, ParsingJsonException.class),
@@ -33,7 +34,7 @@ public enum ErrorDictionary {
   NO_SUCH_PENDING_ORDER("01.03.01", "No such pending order", NOT_FOUND, NoSuchPendingOrderException.class),
   EMAIL_NOT_FOUND("01.03.02", "No valid email found", NOT_FOUND, EmailNotFoundException.class),
   PHONE_NOT_FOUND("01.03.03", "No valid phone number found", NOT_FOUND, EmailNotFoundException.class),
-  NO_SUCH_PARAM_MAPPER("01.01.03", "No such param mapper", INTERNAL_SERVER_ERROR, NoSuchParamMapperException.class),
+
   //available-dates=04
   NOT_FOUND_AVAILABLE_DATES("01.04.01", "Not found available dates", NOT_FOUND, NotFoundAvailableDatesException.class),
 
