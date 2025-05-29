@@ -11,9 +11,15 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class JsonReader {
+public class FileReader {
 
-    public static String readJsonAsString(String filename) throws IOException {
+    public static String readRaw(String filename) throws IOException {
+        ClassPathResource resource = new ClassPathResource(filename);
+        byte[] bytes = FileCopyUtils.copyToByteArray(resource.getInputStream());
+        return new String(bytes, StandardCharsets.UTF_8);
+    }
+
+    public static String readJson(String filename) throws IOException {
         ClassPathResource classPathResource = new ClassPathResource(filename);
 
         byte[] bdata = FileCopyUtils.copyToByteArray(classPathResource.getInputStream());

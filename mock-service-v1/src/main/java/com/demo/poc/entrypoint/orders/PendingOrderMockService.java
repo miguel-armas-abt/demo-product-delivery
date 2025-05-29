@@ -10,9 +10,10 @@ import org.mockserver.model.HttpStatusCode;
 import org.springframework.stereotype.Component;
 
 import static com.demo.poc.commons.custom.utils.DelayUtil.generateRandomDelay;
+import static com.demo.poc.commons.custom.utils.FileReader.readRaw;
 import static com.demo.poc.commons.custom.utils.HeadersGenerator.contentType;
 import static com.demo.poc.commons.custom.utils.HeadersGenerator.generateTraceId;
-import static com.demo.poc.commons.custom.utils.JsonReader.readJsonAsString;
+import static com.demo.poc.commons.custom.utils.FileReader.readJson;
 import static org.mockserver.model.HttpRequest.request;
 import static org.mockserver.model.HttpResponse.response;
 
@@ -36,7 +37,7 @@ public class PendingOrderMockService implements MockService {
               .withStatusCode(HttpStatusCode.OK_200.code())
               .withHeader(contentType("application/x-ndjson"))
               .withHeader(traceIdHeader)
-              .withBody(readJsonAsString("mocks/orders/PendingOrder.200.json"))
+              .withBody(readRaw("mocks/orders/PendingOrder.200.json"))
               .withDelay(TimeUnit.MILLISECONDS, randomDelay);
         });
   }

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import static com.demo.poc.commons.custom.utils.DelayUtil.generateRandomDelay;
 import static com.demo.poc.commons.custom.utils.HeadersGenerator.contentType;
 import static com.demo.poc.commons.custom.utils.HeadersGenerator.generateTraceId;
-import static com.demo.poc.commons.custom.utils.JsonReader.readJsonAsString;
+import static com.demo.poc.commons.custom.utils.FileReader.readJson;
 import static org.mockserver.model.HttpRequest.request;
 import static org.mockserver.model.HttpResponse.response;
 
@@ -40,7 +40,7 @@ public class ReserveDeliveryMockService implements MockService {
               .withStatusCode(HttpStatusCode.OK_200.code())
               .withHeader(contentType("application/json"))
               .withHeader(traceIdHeader)
-              .withBody(readJsonAsString("mocks/reserve/Reserve.without-capacity.200.json"))
+              .withBody(readJson("mocks/reserve/Reserve.without-capacity.200.json"))
               .withDelay(TimeUnit.MILLISECONDS, randomDelay);
         });
 
@@ -57,7 +57,7 @@ public class ReserveDeliveryMockService implements MockService {
               .withStatusCode(HttpStatusCode.OK_200.code())
               .withHeader(contentType("application/json"))
               .withHeader(traceIdHeader)
-              .withBody(readJsonAsString("mocks/reserve/Reserve.200.json"))
+              .withBody(readJson("mocks/reserve/Reserve.200.json"))
               .withDelay(TimeUnit.MILLISECONDS, randomDelay);
         });
   }
