@@ -103,16 +103,16 @@ docker build -t miguelarmasabt/product-delivery:v1.0.1 -f ./docker/Dockerfile.na
 
 ⚙️ Crear namespace y aplicar manifiestos
 ```shell
-kubectl create namespace delivery
-kubectl apply -f ./k8s.yaml -n delivery
+kubectl create namespace poc
+kubectl apply -f ./k8s.yaml -n poc
 ```
 
 ⚙️ Eliminar orquestación
 ```shell
-kubectl delete -f ./k8s.yaml -n delivery
+kubectl delete -f ./k8s.yaml -n poc
 ```
 
 ⚙️ Port-forward
 ```shell
-kubectl port-forward <pod-id> 8080:8080 -n delivery
+kubectl port-forward <pod-id> 8080:8080 -n poc
 ```
