@@ -3,11 +3,11 @@ package com.demo.poc.entrypoint.availability.mapper;
 import java.util.Comparator;
 import java.util.List;
 
-import com.demo.poc.commons.core.config.MappingConfig;
-import com.demo.poc.commons.custom.states.context.availability.AvailableDateContext;
-import com.demo.poc.commons.custom.states.dto.response.ContextResponse;
-import com.demo.poc.commons.custom.utils.DateUtils;
-import com.demo.poc.commons.custom.utils.TimeRangeUtils;
+import com.demo.poc.commons.config.di.MappingConfig;
+import com.demo.poc.commons.states.context.availability.AvailableDateContext;
+import com.demo.poc.commons.states.dto.response.ContextResponse;
+import com.demo.poc.commons.utils.DateUtils;
+import com.demo.poc.commons.utils.TimeRangeUtils;
 import com.demo.poc.entrypoint.availability.dto.response.AvailabilityResponseDto;
 import com.demo.poc.entrypoint.availability.dto.response.AvailableDateDto;
 import org.mapstruct.Mapper;

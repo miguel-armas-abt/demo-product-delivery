@@ -1,9 +1,9 @@
 package com.demo.poc.entrypoint.reservation.mapper;
 
-import com.demo.poc.commons.core.config.MappingConfig;
-import com.demo.poc.commons.custom.states.context.availability.AvailableDateContext;
-import com.demo.poc.commons.custom.states.context.reservation.ReservationContext;
-import com.demo.poc.commons.custom.utils.TimeRangeUtils;
+import com.demo.poc.commons.config.di.MappingConfig;
+import com.demo.poc.commons.states.context.availability.AvailableDateContext;
+import com.demo.poc.commons.states.context.reservation.ReservationContext;
+import com.demo.poc.commons.utils.TimeRangeUtils;
 import com.demo.poc.entrypoint.reservation.repository.wrapper.response.ReservationResponseWrapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

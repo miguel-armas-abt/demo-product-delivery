@@ -3,7 +3,7 @@ package com.demo.poc.entrypoint.availability.dto.response;
 import java.io.Serializable;
 import java.util.List;
 
-import com.demo.poc.commons.custom.states.dto.response.ContextResponse;
+import com.demo.poc.commons.states.dto.response.ContextResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

@@ -1,8 +1,8 @@
 package com.demo.poc.entrypoint.contactdata.state;
 
-import com.demo.poc.commons.custom.states.StateHandler;
-import com.demo.poc.commons.custom.states.context.ProductDeliveryContext;
-import com.demo.poc.commons.custom.states.State;
+import com.demo.poc.commons.states.StateHandler;
+import com.demo.poc.commons.states.context.ProductDeliveryContext;
+import com.demo.poc.commons.states.State;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import lombok.RequiredArgsConstructor;

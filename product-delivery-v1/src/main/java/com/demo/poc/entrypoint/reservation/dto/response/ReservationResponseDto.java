@@ -1,6 +1,6 @@
 package com.demo.poc.entrypoint.reservation.dto.response;
 
-import com.demo.poc.commons.custom.states.dto.response.ContextResponse;
+import com.demo.poc.commons.states.dto.response.ContextResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

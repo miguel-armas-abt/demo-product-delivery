@@ -1,9 +1,9 @@
 package com.demo.poc.entrypoint.contactdata.service;
 
-import com.demo.poc.commons.custom.states.StateDispatcher;
-import com.demo.poc.commons.custom.exceptions.NoSuchPendingOrderException;
-import com.demo.poc.commons.custom.states.dto.response.ContextResponse;
-import com.demo.poc.commons.custom.states.mapper.ContextMapper;
+import com.demo.poc.commons.states.StateDispatcher;
+import com.demo.poc.entrypoint.contactdata.exceptions.NoSuchPendingOrderException;
+import com.demo.poc.commons.states.dto.response.ContextResponse;
+import com.demo.poc.commons.states.mapper.ContextMapper;
 import com.demo.poc.entrypoint.contactdata.dto.request.ContactDataRequestDto;
 import com.demo.poc.entrypoint.contactdata.dto.response.ContactDataResponseDto;
 import com.demo.poc.entrypoint.contactdata.mapper.ContactDataContextMapper;

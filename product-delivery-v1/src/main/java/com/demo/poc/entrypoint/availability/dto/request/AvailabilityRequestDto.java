@@ -2,7 +2,7 @@ package com.demo.poc.entrypoint.availability.dto.request;
 
 import java.io.Serializable;
 
-import com.demo.poc.commons.custom.states.dto.request.ContextRequest;
+import com.demo.poc.commons.states.dto.request.ContextRequest;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;

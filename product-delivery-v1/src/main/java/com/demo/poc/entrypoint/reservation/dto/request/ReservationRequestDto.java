@@ -1,6 +1,6 @@
 package com.demo.poc.entrypoint.reservation.dto.request;
 
-import com.demo.poc.commons.custom.states.dto.request.ContextRequest;
+import com.demo.poc.commons.states.dto.request.ContextRequest;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;

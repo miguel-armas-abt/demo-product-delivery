@@ -3,7 +3,7 @@ package com.demo.poc.entrypoint.contactdata.dto.response;
 import java.io.Serializable;
 import java.util.List;
 
-import com.demo.poc.commons.custom.states.dto.response.ContextResponse;
+import com.demo.poc.commons.states.dto.response.ContextResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

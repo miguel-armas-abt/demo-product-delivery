@@ -1,7 +1,7 @@
 package com.demo.poc.entrypoint.availability.mapper;
 
-import com.demo.poc.commons.core.config.MappingConfig;
-import com.demo.poc.commons.custom.states.context.ProductDeliveryContext;
+import com.demo.poc.commons.config.di.MappingConfig;
+import com.demo.poc.commons.states.context.ProductDeliveryContext;
 import com.demo.poc.entrypoint.availability.dto.request.AvailabilityRequestDto;
 import com.demo.poc.entrypoint.availability.repository.wrapper.request.AvailabilityRequestWrapper;
 import org.mapstruct.Mapper;

@@ -1,12 +1,12 @@
 package com.demo.poc.entrypoint.reservation.service;
 
-import com.demo.poc.commons.custom.states.StateDispatcher;
-import com.demo.poc.commons.custom.states.context.ProductDeliveryContext;
-import com.demo.poc.commons.custom.states.context.availability.AvailableDateContext;
-import com.demo.poc.commons.custom.states.context.reservation.ReservationContext;
-import com.demo.poc.commons.custom.states.dto.response.ContextResponse;
-import com.demo.poc.commons.custom.states.State;
-import com.demo.poc.commons.custom.states.mapper.ContextMapper;
+import com.demo.poc.commons.states.StateDispatcher;
+import com.demo.poc.commons.states.context.ProductDeliveryContext;
+import com.demo.poc.commons.states.context.availability.AvailableDateContext;
+import com.demo.poc.commons.states.context.reservation.ReservationContext;
+import com.demo.poc.commons.states.dto.response.ContextResponse;
+import com.demo.poc.commons.states.State;
+import com.demo.poc.commons.states.mapper.ContextMapper;
 import com.demo.poc.entrypoint.reservation.dto.request.ReservationRequestDto;
 import com.demo.poc.entrypoint.reservation.dto.response.ReservationResponseDto;
 import com.demo.poc.entrypoint.reservation.mapper.ReservationContextMapper;

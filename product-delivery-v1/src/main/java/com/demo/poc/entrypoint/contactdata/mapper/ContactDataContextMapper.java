@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-import com.demo.poc.commons.core.config.MappingConfig;
-import com.demo.poc.commons.custom.states.context.ProductDeliveryContext;
-import com.demo.poc.commons.custom.enums.Priority;
-import com.demo.poc.commons.custom.exceptions.EmailNotFoundException;
-import com.demo.poc.commons.custom.exceptions.PhoneNotFoundException;
-import com.demo.poc.commons.custom.states.State;
+import com.demo.poc.commons.config.di.MappingConfig;
+import com.demo.poc.commons.states.context.ProductDeliveryContext;
+import com.demo.poc.commons.enums.Priority;
+import com.demo.poc.entrypoint.contactdata.exceptions.EmailNotFoundException;
+import com.demo.poc.entrypoint.contactdata.exceptions.PhoneNotFoundException;
+import com.demo.poc.commons.states.State;
 import com.demo.poc.entrypoint.contactdata.dto.request.ContactDataRequestDto;
 import com.demo.poc.entrypoint.contactdata.repository.contactdata.wrapper.response.ContactDataResponseWrapper;
 import com.demo.poc.entrypoint.contactdata.repository.orders.wrapper.response.PendingOrderResponseWrapper;

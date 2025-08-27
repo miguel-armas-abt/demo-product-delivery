@@ -2,7 +2,7 @@ package com.demo.poc.entrypoint.contactdata.repository.contactdata;
 
 import com.demo.poc.commons.core.properties.restclient.HeaderTemplate;
 import com.demo.poc.commons.core.restclient.utils.HeadersFiller;
-import com.demo.poc.commons.custom.properties.ApplicationProperties;
+import com.demo.poc.commons.properties.ApplicationProperties;
 import jakarta.ws.rs.core.MultivaluedMap;
 import jakarta.ws.rs.ext.Provider;
 import lombok.RequiredArgsConstructor;
