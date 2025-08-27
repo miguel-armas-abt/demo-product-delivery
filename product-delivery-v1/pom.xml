@@ -10,7 +10,7 @@
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.demo.poc.service</groupId>
+  <groupId>com.demo.services</groupId>
   <artifactId>product-delivery-v1</artifactId>
   <version>1.0-SNAPSHOT</version>
 
@@ -51,7 +51,7 @@
         </property>
       </activation>
       <properties>
-        <quarkus.native.container-build>false</quarkus.native.container-build> <!-- generate a Linux ELF binary instead of a Windows .exe -->
+        <quarkus.native.container-build>true</quarkus.native.container-build> <!-- generate a Linux ELF binary instead of a Windows .exe -->
       </properties>
     </profile>
   </profiles>
