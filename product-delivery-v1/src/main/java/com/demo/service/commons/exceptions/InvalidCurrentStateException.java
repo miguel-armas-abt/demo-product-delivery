@@ -1,0 +1,19 @@
+package com.demo.service.commons.exceptions;
+
+import com.demo.commons.errors.exceptions.GenericException;
+import com.demo.service.commons.states.State;
+
+import static jakarta.ws.rs.core.Response.Status.BAD_REQUEST;
+
+public class InvalidCurrentStateException extends GenericException {
+
+    public static final String INVALID_FIELD_CODE = "01.02.01";
+
+    public InvalidCurrentStateException(State currentState) {
+        super(
+            INVALID_FIELD_CODE,
+            "Invalid current state: " + currentState,
+            BAD_REQUEST
+        );
+    }
+}
