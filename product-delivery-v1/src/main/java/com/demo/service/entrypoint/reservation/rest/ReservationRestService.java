@@ -1,8 +1,5 @@
 package com.demo.service.entrypoint.reservation.rest;
 
-import java.util.Map;
-
-import com.demo.commons.restserver.RestServerUtils;
 import com.demo.commons.validations.ParamValidator;
 import com.demo.commons.validations.headers.DefaultHeaders;
 import com.demo.service.entrypoint.reservation.dto.request.ReservationRequestDto;
@@ -34,8 +31,7 @@ public class ReservationRestService {
 
   @POST
   public Uni<ReservationResponseDto> reserve(ReservationRequestDto request) {
-    Map<String, String> headers = RestServerUtils.extractHeadersAsMap(httpHeaders.getRequestHeaders());
-    return paramValidator.validateAndGet(headers, DefaultHeaders.class)
+    return paramValidator.validateHeadersAndGet(httpHeaders.getRequestHeaders(), DefaultHeaders.class)
         .flatMap(defaultHeaders -> reservationService.reserve(request));
   }
 }
